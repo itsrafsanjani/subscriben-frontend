@@ -2,7 +2,7 @@
     <div>
         <!-- Validation Errors -->
         <BreezeValidationErrors :errors="form.errors" class="mb-4" />
-        
+
         <form @submit.prevent="submit">
             <div>
                 <BreezeLabel for="email" value="Email" />
@@ -74,7 +74,7 @@ export default {
 
             try {
                 await this.$auth.loginWith('laravelSanctum', { data: this.form })
-            
+
                 this.form.processing = false
             } catch (e) {
                 Object.keys(e.response.data.errors).forEach(key => {
@@ -82,6 +82,8 @@ export default {
                         this.form.errors.push(error)
                     })
                 })
+
+                this.form.processing = false
             }
         }
     }
