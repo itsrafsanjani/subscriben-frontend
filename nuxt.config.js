@@ -19,7 +19,8 @@ export default {
   ssr: false,
 
   env: {
-    backendUrl: process.env.NUXT_PUBLIC_BACKEND_URL
+    backendUrl: process.env.NUXT_PUBLIC_BACKEND_URL,
+    stripeKey: process.env.STRIPE_KEY,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

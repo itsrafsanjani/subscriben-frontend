@@ -28,9 +28,9 @@
                 <p class="text-xl text-white">
                   {{ plan.description }}
                 </p>
-                <button class="w-5/6 py-2 mt-2 font-semibold text-center uppercase bg-white border border-transparent rounded text-blue-500">
+                <NuxtLink :to="`plans/${plan.slug}`" class="w-5/6 py-2 mt-2 font-semibold text-center uppercase bg-white border border-transparent rounded text-blue-500">
                   Get Started
-                </button>
+                </NuxtLink>
               </div>
             </label>
           </div>
@@ -55,7 +55,7 @@ export default {
       }
   },
 
-  mounted() {
+  created() {
         this.$axios.get('/api/v1/plans')
             .then(response => {
               this.plans = response.data.data
